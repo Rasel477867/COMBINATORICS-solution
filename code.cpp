@@ -79,16 +79,29 @@ int main()
 
 
     //start main funciton
-   ll n,a=2;
-   cin>>n;
-  ll ans=0;
-  for(i=1;i<=n; i++)
-  {
-     ans+=a;
-     a*=2ll;
-  }
+    ll n,m,a,b,c,d,ans,mx,mn;
+    cin>>n>>m;
+    a=n-m+1;
+    mx=(a*(a-1))/2;
+    b=n/m;
+    if(b*m==n)
+    {
+        ans=(b*(b-1))/2;
+        mn=ans*m;
 
- cout<<ans;
+    }
+    else{
+       d=n-b*m;
+       c=m-d;
+       ans=0;
+       ans+=(b*(b-1))/2;
+       ans*=c;
+       b++;
+       ans+=((b*(b-1))/2)*d;
+       mn=ans;
+    }
+    cout<<mn<<" "<<mx;
+
 
 
 
@@ -97,4 +110,3 @@ int main()
 
     return 0;
 }
-
